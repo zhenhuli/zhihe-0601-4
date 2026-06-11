@@ -3,12 +3,12 @@
     <Transition name="modal">
       <div
         v-if="appointmentStore.isModalOpen"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4"
+        class="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 overflow-y-auto"
         @click.self="closeModal"
       >
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-        <div class="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg animate-scale-in overflow-hidden">
-          <div class="bg-gradient-to-r from-primary-500 to-decor-gold px-6 py-8 sm:px-8 text-white">
+        <div class="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg animate-scale-in my-auto max-h-[90vh] flex flex-col overflow-hidden">
+          <div class="bg-gradient-to-r from-primary-500 to-decor-gold px-6 py-6 sm:px-8 text-white flex-shrink-0">
             <button
               @click="closeModal"
               class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
@@ -29,7 +29,7 @@
               </div>
             </div>
           </div>
-          <form @submit.prevent="handleSubmit" class="p-6 sm:p-8 space-y-5">
+          <form @submit.prevent="handleSubmit" class="p-6 sm:p-8 space-y-5 flex-1 overflow-y-auto">
             <div class="grid grid-cols-3 gap-4 mb-6">
               <div class="text-center p-3 bg-primary-50 rounded-xl">
                 <div class="w-10 h-10 mx-auto rounded-full bg-primary-500 text-white flex items-center justify-center mb-1">

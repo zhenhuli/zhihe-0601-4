@@ -3,12 +3,12 @@
     <Transition name="modal">
       <div
         v-if="appointmentStore.isSuccessOpen"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4"
+        class="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 overflow-y-auto"
         @click.self="closeModal"
       >
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-        <div class="relative bg-white rounded-3xl shadow-2xl w-full max-w-md animate-scale-in overflow-hidden">
-          <div class="p-8 text-center">
+        <div class="relative bg-white rounded-3xl shadow-2xl w-full max-w-md animate-scale-in my-auto max-h-[90vh] flex flex-col overflow-hidden">
+          <div class="p-8 text-center flex-1 overflow-y-auto">
             <div class="relative w-24 h-24 mx-auto mb-6">
               <div class="absolute inset-0 rounded-full bg-green-100 animate-ping opacity-30"></div>
               <div class="relative w-24 h-24 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-lg">
@@ -55,7 +55,7 @@
               </button>
             </div>
           </div>
-          <div class="bg-gradient-to-r from-primary-50 to-decor-gold/10 px-8 py-4 border-t border-decor-sand/50">
+          <div class="bg-gradient-to-r from-primary-50 to-decor-gold/10 px-8 py-4 border-t border-decor-sand/50 flex-shrink-0">
             <div class="flex items-center justify-center gap-6 text-sm text-decor-slate">
               <div class="flex items-center gap-1.5">
                 <svg class="w-4 h-4 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
