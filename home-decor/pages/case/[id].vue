@@ -20,6 +20,8 @@
                 :src="caseData.panoramaImages[currentImage]"
                 :alt="`${caseData.title} - ${imageLabels[currentImage]}`"
                 class="w-full aspect-[16/10] object-cover"
+                loading="eager"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div class="absolute top-4 left-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -54,7 +56,7 @@
                 class="relative rounded-xl overflow-hidden aspect-[4/3] transition-all duration-300"
                 :class="currentImage === idx ? 'ring-4 ring-primary-500 ring-offset-2' : 'opacity-70 hover:opacity-100'"
               >
-                <img :src="img" :alt="imageLabels[idx]" class="w-full h-full object-cover"/>
+                <img :src="img" :alt="imageLabels[idx]" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
                 <div class="absolute inset-0 bg-black/30 flex items-center justify-center" v-if="currentImage === idx">
                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
                 </div>
@@ -222,6 +224,7 @@ import { ref, computed, onMounted } from 'vue'
 import { mockCases } from '~/config/mockData'
 import { LAYOUT_OPTIONS } from '~/types'
 import type { MaterialItem } from '~/types'
+import { useAppointmentStore } from '~/stores/appointment'
 
 const route = useRoute()
 const router = useRouter()

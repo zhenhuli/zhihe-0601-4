@@ -79,6 +79,7 @@
 
 <script setup lang="ts">
 import { watch } from 'vue'
+import { useAppointmentStore } from '~/stores/appointment'
 
 const appointmentStore = useAppointmentStore()
 const router = useRouter()

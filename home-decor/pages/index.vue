@@ -222,6 +222,7 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { STYLE_OPTIONS, AREA_OPTIONS, PRICE_OPTIONS, LAYOUT_OPTIONS } from '~/types'
 import { mockCases } from '~/config/mockData'
 import type { FilterState } from '~/types'
+import { useAppointmentStore } from '~/stores/appointment'
 
 const router = useRouter()
 const route = useRoute()

@@ -45,6 +45,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useAppointmentStore } from '~/stores/appointment'
 
 const showScrollTop = ref(false)
 const appointmentStore = useAppointmentStore()

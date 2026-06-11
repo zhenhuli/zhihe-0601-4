@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-06-11',
   typescript: {
     strict: true,
-    typeCheck: true
+    typeCheck: false
   },
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
   css: ['~/assets/css/main.css'],

@@ -232,6 +232,8 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
 import { mockDecorGrades, mockQuoteItems } from '~/config/mockData'
+import { useQuoteStore } from '~/stores/quote'
+import { useAppointmentStore } from '~/stores/appointment'
 
 const quoteStore = useQuoteStore()
 const appointmentStore = useAppointmentStore()

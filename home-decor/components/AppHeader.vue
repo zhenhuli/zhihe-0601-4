@@ -80,6 +80,7 @@
 
 <script setup lang="ts">
 import { markRaw, ref } from 'vue'
+import { useAppointmentStore } from '~/stores/appointment'
 
 const mobileMenuOpen = ref(false)
 const appointmentStore = useAppointmentStore()

@@ -153,6 +153,8 @@
 import { computed } from 'vue'
 import { mockQuoteItems } from '~/config/mockData'
 import type { SelectedQuoteItem } from '~/types'
+import { useQuoteStore } from '~/stores/quote'
+import { useAppointmentStore } from '~/stores/appointment'
 
 const quoteStore = useQuoteStore()
 const appointmentStore = useAppointmentStore()

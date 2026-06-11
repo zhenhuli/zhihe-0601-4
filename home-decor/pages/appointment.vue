@@ -245,6 +245,7 @@
 <script setup lang="ts">
 import { reactive, ref, onMounted } from 'vue'
 import { STYLE_OPTIONS, LAYOUT_OPTIONS } from '~/types'
+import { useAppointmentStore } from '~/stores/appointment'
 
 const appointmentStore = useAppointmentStore()
 
