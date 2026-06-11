@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>RTS 战斗模拟器</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a2e;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        #gameContainer {
+            position: relative;
+            width: 800px;
+            margin: 0 auto;
+        }
+        #gameCanvas {
+            border: 2px solid #4a4a6a;
+            background: #2d4a3e;
+            display: block;
+        }
+        #ui {
+            margin-top: 10px;
+            padding: 10px;
+            background: #16213e;
+            border-radius: 5px;
+        }
+        #ui h3 {
+            margin: 0 0 10px 0;
+            color: #e94560;
+        }
+        .controls {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .control-item {
+            padding: 5px 10px;
+            background: #0f3460;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        .debug-info {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #aaa;
+        }
+        #debugToggle {
+            padding: 5px 15px;
+            background: #e94560;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #debugToggle:hover {
+            background: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="ui">
+            <h3>🎮 RTS 战斗模拟器</h3>
+            <div class="controls">
+                <div class="control-item">🖱️ 左键: 创建蓝色坦克 (最多10辆)</div>
+                <div class="control-item">🖱️ 右键: 移动选中的坦克</div>
+                <div class="control-item">🖱️ 拖拽: 框选多辆坦克</div>
+                <div class="control-item">❤️ 坦克生命: 3</div>
+                <div class="control-item">💥 子弹速度: 快</div>
+                <div class="control-item">🗺️ 小地图按钮: 显隐小地图</div>
+            </div>
+            <div class="debug-info">
+                <button id="debugToggle">开启调试模式</button>
+                <button id="minimapToggle" style="margin-left: 10px; padding: 5px 15px; background: #4a90e2; color: white; border: none; border-radius: 3px; cursor: pointer;">隐藏小地图</button>
+                <span id="debugStatus"> (碰撞箱/寻路网格)</span>
+                <span id="unitCount" style="margin-left: 20px;"></span>
+                <span id="fps" style="margin-left: 20px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

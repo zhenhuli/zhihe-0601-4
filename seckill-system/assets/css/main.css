@@ -1,0 +1,308 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .seckill-btn {
+    @apply px-6 py-3 rounded-full font-bold text-white transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  .seckill-btn-primary {
+    @apply seckill-btn bg-gradient-to-r from-seckill-red to-primary-600 shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40;
+  }
+
+  .seckill-btn-disabled {
+    @apply seckill-btn bg-gray-400 cursor-not-allowed;
+  }
+
+  .card-shadow {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-seckill-red to-seckill-orange bg-clip-text text-transparent;
+  }
+
+  .shimmer-effect {
+    @apply bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 bg-[length:200%_100%] animate-shimmer;
+  }
+
+  .stock-bar {
+    @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+  }
+
+  .stock-bar-fill {
+    @apply h-full bg-gradient-to-r from-seckill-orange to-seckill-red rounded-full transition-all duration-500;
+  }
+
+  .countdown-box {
+    @apply inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-seckill-dark text-white rounded-lg font-bold text-lg md:text-xl animate-countdown;
+  }
+
+  .price-tag {
+    @apply text-seckill-red font-bold;
+  }
+
+  .original-price {
+    @apply text-gray-400 line-through text-sm;
+  }
+
+  .discount-tag {
+    @apply inline-block px-2 py-1 bg-seckill-red text-white text-xs rounded-md font-bold;
+  }
+
+  .sold-tag {
+    @apply inline-block px-2 py-1 bg-seckill-orange/10 text-seckill-orange text-xs rounded-md;
+  }
+
+  .mask-layer {
+    @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50;
+  }
+
+  .modal-container {
+    @apply bg-white rounded-2xl shadow-2xl animate-scale-in max-w-md w-full mx-4 overflow-hidden;
+  }
+
+  .product-card {
+    @apply card-shadow overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-2;
+  }
+
+  .product-card-disabled {
+    @apply opacity-60 cursor-not-allowed hover:translate-y-0;
+  }
+
+  .nav-link {
+    @apply px-4 py-2 rounded-lg transition-colors hover:bg-gray-100;
+  }
+
+  .nav-link-active {
+    @apply bg-primary-50 text-seckill-red font-medium;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    animation: particle-fly 1s ease-out forwards;
+  }
+
+  @keyframes particle-fly {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(var(--tx), var(--ty)) scale(0);
+    }
+  }
+
+  .lazy-image {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .lazy-image.loaded {
+    opacity: 1;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: calc(var(--index, 0) * 0.1s);
+  }
+
+  .scroll-reveal--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes countdown-bounce {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  .countdown-tick {
+    animation: countdown-bounce 0.3s ease-in-out;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.5s ease-out;
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out;
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out;
+  }
+
+  @keyframes countdown {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-countdown {
+    animation: countdown 1s ease-in-out infinite;
+  }
+
+  @keyframes bounce-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-bounce-in {
+    animation: bounce-in 0.6s ease-out;
+  }
+
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100%) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  .confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    animation: confetti-fall 3s ease-in-out forwards;
+  }
+}

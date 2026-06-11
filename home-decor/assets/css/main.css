@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-decor-cream text-decor-charcoal font-sans antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg active:scale-95;
+  }
+  .btn-secondary {
+    @apply bg-white border-2 border-primary-500 text-primary-600 hover:bg-primary-50 font-medium px-6 py-3 rounded-lg transition-all duration-300 active:scale-95;
+  }
+  .btn-ghost {
+    @apply text-decor-slate hover:text-primary-600 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-primary-50;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden;
+  }
+  .input-base {
+    @apply w-full px-4 py-3 border border-decor-sand rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-200 bg-white;
+  }
+  .chip {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-200 border-2;
+  }
+  .chip-active {
+    @apply bg-primary-500 border-primary-500 text-white shadow-md;
+  }
+  .chip-inactive {
+    @apply bg-white border-decor-sand text-decor-slate hover:border-primary-300 hover:text-primary-600;
+  }
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-decor-charcoal mb-2;
+  }
+  .section-subtitle {
+    @apply text-decor-slate mb-8;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-500 to-decor-gold bg-clip-text text-transparent;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
